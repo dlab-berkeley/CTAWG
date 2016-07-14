@@ -210,8 +210,13 @@ The wrapper takes two arguments. The first is a vector of regular expressions th
 Note that it may take several minutes to download large files (the transfer appears to be unusually slow, probably something to do with Google Cloud free tier features). The following chunk will download the covariate 'descr' file (12 MB) and full text (165 MB!) of the Congressional Record for the 107th Congress. If you save the file, note how much smaller the file size of the compressed `.RData` format is compared to the original files!
 
 ```{r source2drive2R-1}
-test<-source2drive2R.f(c('GPOdescr_107','GPOspeech_107'))
+test<-source2drive2R.f(c('GPOdescr_107','GPOspeech_107','107SpeakerID')) # test data
 save(test,file='icpsr107.RData')
+```
+
+```{r source2drive2R-1,eval=F}
+icpsr<-source2drive2R.f(c('GPOdescr','GPOspeech','SpeakerID')) # everything
+save(icpsr,file='/Volumes/Iomega_HDD/Scraped Hearings/icpsr.RData')
 ```
 
 #How to use the results
